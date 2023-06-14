@@ -1,10 +1,16 @@
 package alz.genfive.webshop.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 @Entity // This maps the class to any database that we have configured on the class path.
 public class User implements Serializable {
     @Id // Tells that this is gone be the primary key in the DB.
