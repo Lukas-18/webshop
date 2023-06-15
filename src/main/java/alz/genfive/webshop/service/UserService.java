@@ -31,7 +31,7 @@ public class UserService {
     }
 
     // Gives you only one User, searched by id:
-    public User findUser(Long id){
+    public User findUserById(Long id){
         return this.userRepo.findUserById(id)
                 .orElseThrow(() -> new UserNotFoundException("FIND USER ERROR: User with the ID " + id + " was not found."));
         /* "findUserById()"-method is a "query-method".
