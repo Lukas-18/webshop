@@ -58,6 +58,7 @@ public class UserService {
         updatedUser.setPassword(user.getPassword());
         updatedUser.setAddress(user.getAddress());
         updatedUser.setShoppingCart(user.getShoppingCart());
+        updatedUser.setPayments(user.getPayments());
         return this.userRepo.save(updatedUser);
     }
 
