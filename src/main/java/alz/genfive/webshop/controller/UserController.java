@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user") // Default URL to access the UserController / this class.
+@RequestMapping("/webshop_user") // Default URL to access the UserController / this class.
 public class UserController {
 
     // Bring in the service, because we are going to use it in this class:
