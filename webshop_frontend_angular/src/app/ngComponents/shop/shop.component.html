@@ -10,6 +10,7 @@
 
                 <div class="product-img">
 
+                    <!-- You can put q question mark after product so like this: {{product?.imageSource}}, this is a safe way to navigate to attributes on an object. -->
                     <div class="label-offer bg-red" *ngIf="product.sale">Sale</div><img src="{{product.imageSource}}" alt="...">
 
                     <div class="product-cart">
