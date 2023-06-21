@@ -25,6 +25,6 @@ public class Product {
     @OneToMany
     private List<Review> reviews;
     private Availability availability;
-    private String image;
+    private String imageSource;
 
 }
