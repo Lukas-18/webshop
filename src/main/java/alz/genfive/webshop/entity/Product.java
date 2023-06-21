@@ -21,6 +21,8 @@ public class Product {
     private String name;
     private String description;
     private Float price;
+    private Float salePrice;
+    private Boolean sale;
     private Category category;
     @OneToMany
     private List<Review> reviews;
