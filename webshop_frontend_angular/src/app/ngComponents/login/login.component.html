@@ -3,24 +3,24 @@
     <h1 style="color: #3b5bdb;">Login</h1>
 
     <div class="col-5" >
-        <form action="">
+        <form (ngSubmit)="userLogin()"> <!-- ngSubmit fires userLogin-method after clicking the Submit button (method is inside login.component.ts)-->
 
             <!--Email Field:-->
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">E-Mail Addresse:</label>
-                <input type="email" class="form-control" id="" name="" placeholder="name@beispiel.com">
+                <input type="email" [(ngModel)]="user.email" class="form-control" id="email" name="email" placeholder="name@beispiel.com">
             </div>
             <!--Password Field:-->
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Passwort:</label>
-                <input type="password" class="form-control" id="" name="">
+                <input type="password" [(ngModel)]="user.password" class="form-control" id="password" name="password"> <!-- ngModel = variable -->
             </div>
     
             <button type="submit" class="btn btn-primary mb-3">Login</button>
     
         </form>
     
-        <a href="#">Register</a>
+        <a routerLink="/register">Register</a>
     </div>
     
 </div>

@@ -3,7 +3,6 @@ package alz.genfive.webshop.service;
 import alz.genfive.webshop.entity.User;
 import alz.genfive.webshop.exception.UserNotFoundException;
 import alz.genfive.webshop.repository.UserRepo;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +45,12 @@ public class UserService {
         The .orElseThrow is necessary because the return type of our method is "Optional" and not "User",
         so we need to handle this exception where we don't get the User.
          */
+    }
+
+    //FOR LOGIN:
+    public User findUserByEmail(String email){
+        return this.userRepo.findUserByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("LOGIN ERROR: User with email " + email + " doesn't exist."));
     }
 
     //Update Users:

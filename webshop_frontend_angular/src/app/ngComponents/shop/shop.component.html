@@ -1,3 +1,6 @@
+
+<app-navbar-not-loged-in></app-navbar-not-loged-in>
+
 <!--  https://bootdey.com/snippets/view/products-grid-with-hove-icons  -->
 
 
@@ -10,12 +13,12 @@
 
                 <div class="product-img">
 
-                    <!-- You can put q question mark after product so like this: {{product?.imageSource}}, this is a safe way to navigate to attributes on an object. -->
+                    <!-- You can put a question mark after product so like this: {{product?.imageSource}}, this is a safe way to navigate to attributes on an object. -->
                     <div class="label-offer bg-red" *ngIf="product.sale">Sale</div><img src="{{product.imageSource}}" alt="...">
 
                     <div class="product-cart">
                         <a href="#!"><i class="fas fa-cart-plus"></i></a>
-                        <a href="#!"><i class="fas fa-heart"></i></a>
+                        <a href="#!"><i class="fas fa-eye"></i></a>
                     </div>
 
                 </div>

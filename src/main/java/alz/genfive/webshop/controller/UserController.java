@@ -1,7 +1,9 @@
 package alz.genfive.webshop.controller;
 
+import alz.genfive.webshop.dataTransferObject.UserLoginDTO;
 import alz.genfive.webshop.entity.User;
 import alz.genfive.webshop.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +12,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/webshop_user") // Default URL to access the UserController / this class.
+//@CrossOrigin(origins = "http://localhost:4200") // To communicate with frontend, but done this in WebshopApplication.java
 public class UserController {
 
     // Bring in the service, because we are going to use it in this class:
     private final UserService userService;
 
     //Inject the service into the constructor, so that we can Autowire the Service inside of that class:
-    public UserController(UserService userService) {
+
+    public UserController(@Autowired UserService userService) {
         this.userService = userService;
     }
 
@@ -44,6 +48,17 @@ public class UserController {
         User newUser = userService.createUser(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
         // The status code "CREATED" means we created something on the server and that's what we're actually doing by creating a new User.
+    }
+
+    //FOR LOGIN:
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody UserLoginDTO userLoginDTO){
+        User user = userService.findUserByEmail(userLoginDTO.getEmail());
+        System.out.println("FOLGENDER USER GEFUNDEN: " + user);
+        if (user.getPassword().equals(userLoginDTO.getPassword())){
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        }
+        return (ResponseEntity<?>) ResponseEntity.internalServerError();
     }
 
     @PutMapping("/update")

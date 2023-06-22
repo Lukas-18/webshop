@@ -20,6 +20,7 @@ export class UserService {
     }
 
     public createUser(user: User): Observable<User> {
+        alert("Registrierung erfolgreich!");
         return this.http.post<User>(`${this.apiServerUrl}/webshop_user/create`, user);
     }
 
